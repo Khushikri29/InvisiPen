@@ -54,7 +54,7 @@ npm install
 npm run dev
 ```
 
-Open browser:[ [http://localhost:5173/](http://localhost:5173/)](https://invisi-pen.vercel.app/)
+Open browser:[ [(https://invisi-pen.vercel.app/)]
 
 ---
 
