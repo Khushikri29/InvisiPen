@@ -1,66 +1,99 @@
-# InvisiPen
-https://invisi-pen.vercel.app/
-# InvisiPen ✨
+# ✨ InvisiPen – AI Spatial Drawing App
 
-InvisiPen is an AI-powered spatial drawing application that allows you to draw, erase, and manipulate canvas elements directly in the air using your hands. Using advanced computer vision and hand tracking, InvisiPen turns your webcam into an interactive digital canvas!
+Turn your webcam into a futuristic air canvas using hand gestures.
 
-## Features 🚀
+---
 
-- **Air Drawing**: Draw seamlessly in real-time by gesturing with your primary hand.
-- **Gesture Control**: Intuitive hand gestures for erasing, moving, scaling, and rotating your drawings.
-- **Dual Hand Support**: Use your primary hand to draw and your secondary hand to trigger control actions.
-- **Visual Feedback**: Real-time rendering of your fingertips and current active mode.
-- **Customizable Tools**: Adjust colors, brush thickness, and glow intensity via the control panel.
-- **Undo/Redo & Save**: Easily fix mistakes and save your spatial masterpieces locally.
+## 🚀 Overview
 
-## Tech Stack 🛠️
+**InvisiPen** is an AI-powered spatial drawing application that allows users to draw, erase, and manipulate digital elements in the air using hand gestures. Built using advanced computer vision and real-time hand tracking, it transforms natural movements into an interactive creative experience.
 
-- **Frontend Framework:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Hand Tracking Core:** [MediaPipe Hands](https://google.github.io/mediapipe/solutions/hands.html)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Styling:** CSS + Tailwind Merge + Lucide Icons
+---
 
-## Getting Started 💻
+## 🔥 Features
+
+* ✍️ **Air Drawing** – Draw in real-time using your index finger
+* 🖐️ **Gesture Controls** – Erase, move, scale, and rotate using intuitive gestures
+* 🤲 **Dual Hand Support** – One hand for drawing, one for controls
+* 🎯 **Real-time Feedback** – Visual fingertip tracking and active mode indication
+* 🎨 **Custom Tools** – Adjust color, brush size, and glow effects
+* 🔄 **Undo / Redo** – Fix mistakes easily
+* 💾 **Save Canvas** – Export your drawings locally
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** React 19 + Vite
+* **Computer Vision:** MediaPipe Hands
+* **Animations:** Framer Motion
+* **Styling:** Tailwind CSS + Lucide Icons
+
+---
+
+## 💻 Installation & Setup
 
 ### Prerequisites
-Make sure you have Node.js and npm installed on your machine.
-A working webcam is required to use this application!
 
-### Installation
+* Node.js & npm installed
+* Webcam access enabled
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Khushikri29/InvisiPen.git
-   cd InvisiPen
-   ```
+### Steps
 
-2. Install the necessary dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+# Clone repository
+git clone https://github.com/Khushikri29/InvisiPen.git
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+# Navigate into folder
+cd InvisiPen
 
-4. Open your browser and navigate to `http://localhost:5173/` (or the URL provided in your terminal).
+# Install dependencies
+npm install
 
-## Usage & Gestures 🤚
+# Run project
+npm run dev
+```
 
-When you open the app, grant camera permissions.
+Open browser:[ [http://localhost:5173/](http://localhost:5173/)](https://invisi-pen.vercel.app/)
 
-- **Raise Hand**: Bring your hand into the camera frame to initiate tracking.
-- **Draw**: Use your index finger on your primary hand to sketch on the canvas.
-- **Erase**: Specific gesture triggers the eraser tool (your fingertip indicator will grow and turn red).
-- **Secondary Actions**: Use your secondary hand to activate Move, Scale, or Rotate modes.
+---
 
-*(Tip: Keep your hands well-lit for optimal camera tracking!)*
+## 🖐️ How to Use
 
-## Contributing 🤝
+* **Raise Hand** → Start tracking
+* **Index Finger** → Draw
+* **Gesture Change** → Switch tools (erase, move, scale, rotate)
+* **Second Hand** → Control actions
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
+💡 Tip: Ensure proper lighting for better tracking accuracy
 
-## License 📜
+---
 
-This project is licensed under the MIT License.
+## 💡 Inspiration
+
+Inspired by the concept of air drawing from the project:
+
+👉 [https://github.com/Axshatt/AirDrawer](https://github.com/Axshatt/AirDrawer)
+
+This project was inspired by the AirDrawer project by Axshatt. While the core idea of air drawing influenced this work, the implementation, features, and design are developed independently.
+
+---
+
+## 📌 Future Improvements
+
+* Mobile support
+* Gesture customization
+* AI-based shape recognition
+* Multi-user collaboration
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork the repo and submit pull requests.
+
+---
+
+## 🌟 Show Your Support
+
+If you like this project, give it a ⭐ on GitHub!
