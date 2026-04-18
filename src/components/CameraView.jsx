@@ -59,7 +59,7 @@ const CameraView = ({ onResults }) => {
       height: '100vh',
       overflow: 'hidden',
       zIndex: -1,
-      backgroundColor: '#000',
+      backgroundColor: 'transparent',
     }}>
       <video
         ref={videoRef}

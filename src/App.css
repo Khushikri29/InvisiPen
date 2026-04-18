@@ -3,6 +3,7 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
+  background-color: transparent;
 }
 
 .gesture-status {
@@ -10,18 +11,36 @@
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  padding: 12px 24px;
+  padding: 14px 32px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 2px;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   z-index: 50;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--primary-glow);
+  box-shadow: 0 0 30px var(--primary-glow), inset 0 0 10px var(--primary-glow);
+  background: rgba(0, 242, 255, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.gesture-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
 }
 
 .overlay-message {
@@ -29,40 +48,41 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 0.2em;
   text-align: center;
   pointer-events: none;
   z-index: 5;
+  text-transform: uppercase;
 }
 
 /* Custom range slider styling */
-input[type='range'] {
+.cyber-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 4px;
+  height: 2px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   outline: none;
-  margin: 12px 0;
+  margin: 16px 0;
 }
 
-input[type='range']::-webkit-slider-thumb {
+.cyber-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   background: #fff;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px currentColor;
+  border: 2px solid currentColor;
   transition: all 0.2s;
 }
 
-input[type='range']::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+.cyber-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.4);
 }

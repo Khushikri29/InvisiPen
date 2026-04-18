@@ -1,0 +1,142 @@
+.control-panel-wrapper {
+  position: fixed;
+  right: 24px;
+  top: 24px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.settings-toggle {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--primary);
+  border: 1px solid var(--glass-border);
+}
+
+.settings-toggle svg {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.settings-toggle:hover svg {
+  transform: rotate(90deg);
+  filter: drop-shadow(0 0 8px var(--primary-glow));
+}
+
+.panel-content {
+  border-radius: 28px;
+  padding: 24px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 8px;
+  border: 1px solid var(--glass-border-bright);
+}
+
+.panel-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.color-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.color-swatch.active {
+  border-color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px currentColor;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.slider-value {
+  color: var(--primary);
+  font-family: var(--font-mono);
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 12px;
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  border: 1px solid var(--glass-border);
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.action-btn.active {
+  background: var(--primary-glow);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.action-btn svg {
+  margin-bottom: 2px;
+}

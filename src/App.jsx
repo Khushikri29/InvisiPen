@@ -114,12 +114,12 @@ function App() {
       <AnimatePresence>
         {activeMode !== 'IDLE' && activeMode !== CONTROL_GESTURES.IDLE && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="gesture-status glass-meta"
+            initial={{ opacity: 0, scale: 0.8, y: 40 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 40 }}
+            className="gesture-status"
           >
-            {activeMode} MODE
+            PROTOCOL: {activeMode.replace('_', ' ')}
           </motion.div>
         )}
       </AnimatePresence>
@@ -130,21 +130,24 @@ function App() {
         const x = (1 - tip.x) * window.innerWidth;
         const y = tip.y * window.innerHeight;
 
-        let size = '10px';
-        let opacity = 0.6;
+        let size = '8px';
+        let opacity = 0.4;
         let color = settings.color;
-        let shadow = `0 0 10px 2px ${color}`;
+        let shadow = `0 0 10px ${color}`;
+        let border = 'none';
 
         if (i === 1) { // Index finger
           if (gesture === 'ERASE') {
-            size = '60px';
-            color = 'transparent';
-            shadow = '0 0 15px 4px rgba(255, 0, 0, 0.8), inset 0 0 10px 2px rgba(255, 0, 0, 0.5)';
+            size = '48px';
+            color = 'rgba(255, 0, 80, 0.1)';
+            shadow = '0 0 20px rgba(255, 0, 80, 0.5), inset 0 0 10px rgba(255, 0, 80, 0.3)';
+            border = '2px solid rgba(255, 0, 80, 0.5)';
             opacity = 1;
           } else {
-            size = '16px';
+            size = '14px';
             opacity = 1;
-            shadow = `0 0 15px 4px ${color}`;
+            shadow = `0 0 20px ${color}`;
+            border = '2px solid #fff';
           }
         }
 
@@ -156,44 +159,43 @@ function App() {
               left: x, top: y,
               width: size, height: size,
               backgroundColor: color,
-              border: gesture === 'ERASE' ? '2px solid rgba(255, 50, 50, 0.8)' : 'none',
+              border,
               borderRadius: '50%',
               transform: 'translate(-50%, -50%)',
               boxShadow: shadow,
               opacity,
               zIndex: 40,
               pointerEvents: 'none',
-              transition: 'width 0.1s, height 0.1s',
+              transition: 'all 0.15s cubic-bezier(0.2, 0, 0.2, 1)',
             }}
           />
         );
       })}
 
-      {/* Secondary Hand Fingertip Indicators (distinct style) */}
+      {/* Secondary Hand Fingertip Indicators */}
       {controlFingertips.map((tip, i) => {
         if (!tip) return null;
         const x = (1 - tip.x) * window.innerWidth;
         const y = tip.y * window.innerHeight;
 
-        let size = '10px';
-        let opacity = 0.5;
+        let size = '8px';
+        let opacity = 0.3;
         let color = 'transparent';
-        let shadow = '0 0 8px 2px rgba(255, 165, 0, 0.5)';
-        let border = '1.5px solid rgba(255, 165, 0, 0.6)';
+        let shadow = '0 0 8px var(--secondary-glow)';
+        let border = '1px solid var(--secondary)';
 
-        // Index finger of control hand
         if (i === 1) {
-          size = '18px';
+          size = '16px';
           opacity = 1;
           if (controlGesture === CONTROL_GESTURES.MOVE) {
-            shadow = '0 0 20px 4px rgba(100, 180, 255, 0.8)';
-            border = '2px solid rgba(100, 180, 255, 0.8)';
+            border = '2px solid var(--primary)';
+            shadow = '0 0 20px var(--primary-glow)';
           } else if (controlGesture === CONTROL_GESTURES.SCALE) {
-            shadow = '0 0 20px 4px rgba(0, 255, 200, 0.8)';
-            border = '2px solid rgba(0, 255, 200, 0.8)';
+            border = '2px solid var(--secondary)';
+            shadow = '0 0 20px var(--secondary-glow)';
           } else if (controlGesture === CONTROL_GESTURES.ROTATE) {
-            shadow = '0 0 20px 4px rgba(255, 165, 0, 0.8)';
-            border = '2px solid rgba(255, 165, 0, 0.8)';
+            border = '2px solid var(--accent)';
+            shadow = '0 0 20px var(--accent-glow)';
           }
         }
 
@@ -212,7 +214,7 @@ function App() {
               opacity,
               zIndex: 40,
               pointerEvents: 'none',
-              transition: 'width 0.1s, height 0.1s',
+              transition: 'all 0.15s cubic-bezier(0.2, 0, 0.2, 1)',
             }}
           />
         );
@@ -220,7 +222,13 @@ function App() {
 
       {!landmark && !controlLandmark && (
         <div className="overlay-message">
-          👋 Raise your hand to start drawing
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, repeat: Infinity, repeatType: 'reverse' }}
+          >
+            Initialize Neural Link: Raise Hand
+          </motion.div>
         </div>
       )}
     </div>
